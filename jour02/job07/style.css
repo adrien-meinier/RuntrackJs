@@ -1,0 +1,18 @@
+body {
+  background-color: white;
+  color: black;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding-top: 50px;
+  transition: 0.3s;
+}
+
+body.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+button {
+  padding: 10px 15px;
+  cursor: pointer;
+}
