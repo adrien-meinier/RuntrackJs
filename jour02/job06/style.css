@@ -17,9 +17,9 @@ body {
 
 
 body.active {
-    background-color: #007BFF; 
+    background-color: #6dabed; 
 }
 
 body.active #konami-text {
-    color: white;
+    color: rgb(130, 225, 251);
 }
