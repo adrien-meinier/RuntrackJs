@@ -1,0 +1,13 @@
+#container {
+  display: flex;
+}
+
+#container img {
+  width: 100px;
+  cursor: pointer;
+}
+
+#message {
+  margin-top: 20px;
+  font-weight: bold;
+}
