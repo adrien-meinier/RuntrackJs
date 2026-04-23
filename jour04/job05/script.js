@@ -1,15 +1,20 @@
-const quotes = [
-    { content: "La vie est belle", author: "Inconnu" },
-    { content: "Le succès vient avec le travail", author: "Proverbe" },
-    { content: "Ne jamais abandonner", author: "Anonyme" }
-];
+document.getElementById("get-quote").addEventListener("click", async () => {
+    try {
+        const response = await fetch("https://zenquotes.io/api/random");
 
-document.getElementById("get-quote").addEventListener("click", () => {
+        const data = await response.json();
 
-    const random = quotes[Math.floor(Math.random() * quotes.length)];
 
-    document.getElementById("quote-box").innerHTML = `
-        <div>"${random.content}"</div>
-        <div class="author">— ${random.author}</div>
-    `;
+        const quote = data[0];
+
+        document.getElementById("quote-box").innerHTML = `
+            <div>"${quote.q}"</div>
+            <div class="author">— ${quote.a}</div>
+        `;
+
+    } catch (error) {
+        document.getElementById("quote-box").innerHTML =
+            "Erreur lors du chargement de la citation.";
+        console.error(error);
+    }
 });
