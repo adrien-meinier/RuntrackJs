@@ -2,20 +2,26 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zen Quotes</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>Citation inspirante</h1>
+    <main>
+        <h1>Citation inspirante</h1>
 
-<button id="get-quote">Obtenir une citation</button>
+        <button id="get-quote" type="button">
+            Obtenir une citation
+        </button>
 
-<div id="quote-box">
-    Cliquez sur le bouton pour afficher une citation.
-</div>
+        <div id="quote-box" aria-live="polite">
+            Cliquez sur le bouton pour afficher une citation.
+        </div>
+    </main>
 
-<script src="script.js"></script>
+    <script src="script.js" defer></script>
 
 </body>
 </html>
