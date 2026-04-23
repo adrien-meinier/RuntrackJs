@@ -8,9 +8,12 @@ body {
     margin: 0;
 }
 
-#myInput {
-    width: 200px;
-    padding: 10px;
+#Button {
+    padding: 10px 20px;
     font-size: 16px;
-    transition: width 0.3s ease;
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
