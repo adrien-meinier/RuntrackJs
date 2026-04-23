@@ -2,16 +2,37 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Song2</title>
+    <title>Filtrage Pokémon</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-   
+<h1>Filtrer les Pokémon</h1>
 
-    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
-    <script src="script.js"></script>
+<form id="filterForm">
+    <label>ID :</label>
+    <input type="text" id="id">
+
+    <label>Nom :</label>
+    <input type="text" id="name">
+
+    <label>Type :</label>
+    <select id="type">
+        <option value="">-- Tous --</option>
+        <option value="Grass">Grass</option>
+        <option value="Poison">Poison</option>
+        <option value="Fire">Fire</option>
+        <option value="Water">Water</option>
+        <option value="Electric">Electric</option>
+    </select>
+
+    <button type="button" id="filterBtn">Filtrer</button>
+</form>
+
+<h2>Résultats :</h2>
+<div id="results"></div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
