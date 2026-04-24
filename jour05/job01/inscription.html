@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Inscription</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="index.html" class="logo">The Site</a>
+
+  <div>
+    <a href="inscription.html" class="btn small">Inscription</a>
+    <a href="connexion.html" class="btn small">Connexion</a>
+  </div>
+</header>
+
+<main class="container">
+
+  <div id="globalErrors" class="global-errors"></div>
+  <div id="successMessage" class="success"></div>
+
+  <form id="registerForm" novalidate>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Prénom</label>
+        <input type="text" id="prenom">
+        <div class="error" id="prenomError"></div>
+      </div>
+
+      <div class="form-group">
+        <label>Nom</label>
+        <input type="text" id="nom">
+        <div class="error" id="nomError"></div>
+      </div>
+    </div>
+
+    <label>Email</label>
+    <input type="email" id="email">
+    <div class="error" id="emailError"></div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Mot de passe</label>
+        <input type="password" id="password">
+        <div class="error" id="passwordError"></div>
+      </div>
+
+      <div class="form-group">
+        <label>Confirmation</label>
+        <input type="password" id="confirmPassword">
+        <div class="error" id="confirmPasswordError"></div>
+      </div>
+    </div>
+
+    <button type="submit">S'inscrire</button>
+
+  </form>
+
+</main>
+
+<script type="module" src="js/inscription.js"></script>
+</body>
+</html>

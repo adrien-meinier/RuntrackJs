@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #eef5fb;
+}
+
+/* HEADER */
+.header {
+  background: #5dade2; /* bleu clair */
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 30px;
+  margin: 20px;
+}
+
+/* LOGO */
+.logo {
+  color: white;
+  text-decoration: none;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.logo:hover {
+  text-decoration: underline;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 600px;
+  margin: 30px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.center {
+  text-align: center;
+}
+
+/* FORM */
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-group {
+  flex: 1;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #5dade2;
+}
+
+/* BUTTON */
+button {
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  background: #5dade2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3498db;
+}
+
+/* NAV BUTTONS */
+.btn {
+  background: white;
+  color: #5dade2;
+  padding: 6px 12px;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.9em;
+}
+
+.btn:hover {
+  background: #d6eaf8;
+}
+
+.small {
+  font-size: 0.85em;
+}
+
+/* ERRORS */
+.error {
+  color: red;
+  font-size: 0.8em;
+  margin-bottom: 10px;
+}
+
+.global-errors {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.success {
+  color: green;
+  text-align: center;
+  margin-bottom: 10px;
+}
