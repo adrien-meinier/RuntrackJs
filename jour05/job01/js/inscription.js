@@ -3,6 +3,7 @@ import { asyncValidate } from './utils.js';
 // Champs
 const prenom = document.getElementById('prenom');
 const nom = document.getElementById('nom');
+const adresse = document.getElementById('adresse');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
 const confirm = document.getElementById('confirmPassword');
@@ -49,6 +50,20 @@ nom.addEventListener('input', async () => {
   });
 });
 
+adresse.addEventListener('input', async () => {
+  await asyncValidate(() => {
+    if (adresse.value.length === 0) {
+      clearError("adresseError");
+      return;
+    }
+
+    if (adresse.value.length < 5) {
+      setError("adresseError", "Adresse trop courte");
+    } else {
+      clearError("adresseError");
+    }
+  });
+});
 
 email.addEventListener('input', async () => {
   await asyncValidate(() => {
