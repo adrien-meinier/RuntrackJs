@@ -1,39 +1,116 @@
 import { asyncValidate } from './utils.js';
 
-const form = document.getElementById('registerForm');
+// Champs
+const prenom = document.getElementById('prenom');
+const nom = document.getElementById('nom');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const confirm = document.getElementById('confirmPassword');
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
+const success = document.getElementById('successMessage');
 
-  const globalErrors = document.getElementById('globalErrors');
-  const success = document.getElementById('successMessage');
+// Helpers erreurs
+function setError(id, message) {
+  document.getElementById(id).textContent = message;
+}
 
-  globalErrors.innerHTML = "";
-  success.textContent = "";
+function clearError(id) {
+  document.getElementById(id).textContent = "";
+}
 
-  let errors = [];
-
-  const prenom = document.getElementById('prenom').value;
-  const nom = document.getElementById('nom').value;
-  const password = document.getElementById('password').value;
-  const confirm = document.getElementById('confirmPassword').value;
-
+prenom.addEventListener('input', async () => {
   await asyncValidate(() => {
-    if (prenom.length < 2) errors.push("Firstname is required");
-    if (nom.length < 2) errors.push("Lastname is required");
-    if (!password) errors.push("Password is required");
-    if (!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[\W]).{8,}$/.test(password)) {
-      errors.push("Password format is wrong");
+    if (prenom.value.length === 0) {
+      clearError("prenomError");
+      return;
     }
-    if (password !== confirm) {
-      errors.push("Passwords do not match");
+
+    if (prenom.value.length < 2) {
+      setError("prenomError", "Prénom trop court");
+    } else {
+      clearError("prenomError");
     }
   });
+});
 
-  if (errors.length > 0) {
-    globalErrors.innerHTML = errors.map(e => `<div>${e}</div>`).join("");
-    return;
+
+nom.addEventListener('input', async () => {
+  await asyncValidate(() => {
+    if (nom.value.length === 0) {
+      clearError("nomError");
+      return;
+    }
+
+    if (nom.value.length < 2) {
+      setError("nomError", "Nom trop court");
+    } else {
+      clearError("nomError");
+    }
+  });
+});
+
+
+email.addEventListener('input', async () => {
+  await asyncValidate(() => {
+    if (email.value.length === 0) {
+      clearError("emailError");
+      return;
+    }
+
+    if (!/^[^@]+@[^@]+\.[^@]+$/.test(email.value)) {
+      setError("emailError", "Email invalide");
+    } else {
+      clearError("emailError");
+    }
+  });
+});
+
+
+password.addEventListener('input', async () => {
+  await asyncValidate(() => {
+    if (password.value.length === 0) {
+      clearError("passwordError");
+      return;
+    }
+
+    if (password.value.length < 8) {
+      setError("passwordError", "Minimum 8 caractères");
+    } else {
+      clearError("passwordError");
+    }
+  });
+});
+
+
+confirm.addEventListener('input', async () => {
+  await asyncValidate(() => {
+    if (confirm.value.length === 0) {
+      clearError("confirmPasswordError");
+      return;
+    }
+
+    if (confirm.value !== password.value) {
+      setError("confirmPasswordError", "Les mots de passe ne correspondent pas");
+    } else {
+      clearError("confirmPasswordError");
+    }
+  });
+});
+
+
+document.getElementById('registerForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  success.textContent = "";
+
+  const errors = document.querySelectorAll('.error');
+  let hasError = false;
+
+  errors.forEach(err => {
+    if (err.textContent !== "") hasError = true;
+  });
+
+  if (!hasError) {
+    success.textContent = "Inscription réussie ✅";
   }
-
-  success.textContent = "Inscription réussie ✅";
 });
