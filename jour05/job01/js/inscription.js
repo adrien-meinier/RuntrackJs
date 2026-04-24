@@ -111,6 +111,6 @@ document.getElementById('registerForm').addEventListener('submit', (e) => {
   });
 
   if (!hasError) {
-    success.textContent = "Inscription réussie ✅";
+    success.textContent = "Inscription réussie ";
   }
 });

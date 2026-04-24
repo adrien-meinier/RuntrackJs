@@ -33,6 +33,6 @@ form.addEventListener('submit', async (e) => {
   });
 
   if (valid) {
-    success.textContent = "Connexion réussie ✅";
+    success.textContent = "Connexion réussie ";
   }
 });
